@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "713780763939",
+    "project_id": "app-messanger-by-ker",
+    "storage_bucket": "app-messanger-by-ker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713780763939:android:7f573f0d6b98f0883e4096",
+        "android_client_info": {
+          "package_name": "com.example.app_messanger_by_ker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713780763939-3n0s9e75r24alihtrhm8fcplfb7k9mci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_messanger_by_ker",
+            "certificate_hash": "46453fa930e55dc50b5a5931b674f3de2a50792e"
+          }
+        },
+        {
+          "client_id": "713780763939-pqbt7gdb3s7gmfli8f0gfnsqa4v96dal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh_UhwSO17VqhwqJ--GcvLRAuxwwRK-h8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713780763939-pqbt7gdb3s7gmfli8f0gfnsqa4v96dal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
