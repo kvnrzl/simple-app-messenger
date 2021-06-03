@@ -11,6 +11,28 @@ class AuthService {
     return _auth.authStateChanges();
   }
 
+  Future<User> signUpWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      User user = userCredential.user;
+      return user;
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  Future<User> signInWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User user = userCredential.user;
+      return user;
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
   Future<void> signInWithGoogleAccount() async {
     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
     GoogleSignIn googleSignIn = GoogleSignIn();
@@ -34,7 +56,7 @@ class AuthService {
       SharedPrefHelper().saveUserDisplayName(user.displayName);
       SharedPrefHelper().saveUserEmail(user.email);
       SharedPrefHelper().saveUserProfilePic(user.photoURL);
-      SharedPrefHelper().saveUserPhoneNumber(user.phoneNumber);
+      // SharedPrefHelper().saveUserPhoneNumber(user.phoneNumber);
 
       // 2. upload ke database kemudian kirim ke homescreen
       Map<String, dynamic> userInfoMap = {
@@ -43,7 +65,7 @@ class AuthService {
         "userDisplayName": user.displayName,
         "userEmail": user.email,
         "userProfilePic": user.photoURL,
-        "userPhoneNumber": user.phoneNumber
+        // "userPhoneNumber": user.phoneNumber
       };
 
       DatabaseService().addUserIntoDatabase(user.uid, userInfoMap);

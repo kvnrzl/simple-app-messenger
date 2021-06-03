@@ -2,7 +2,6 @@ import 'package:app_messanger_by_ker/helpers/shared_pref.dart';
 import 'package:app_messanger_by_ker/services/auth.dart';
 import 'package:app_messanger_by_ker/services/database.dart';
 import 'package:app_messanger_by_ker/views/chatscreen.dart';
-import 'package:app_messanger_by_ker/views/signin.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool isSearching = false;
+  bool isSearching;
   TextEditingController searchController = TextEditingController();
   Stream<QuerySnapshot> listSearchUserStream, listUserChattedStream;
   String myName, myUsername, myEmail, myPhoneNumber, myProfilePic;
@@ -194,6 +193,13 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     doThisFirst();
+    isSearching = false;
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -209,9 +215,7 @@ class _HomeState extends State<Home> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: GestureDetector(
               onTap: () {
-                AuthService().signOut().then((value) => () {
-                      Get.off(SignIn());
-                    });
+                AuthService().signOut();
               },
               child: Icon(Icons.logout),
             ),

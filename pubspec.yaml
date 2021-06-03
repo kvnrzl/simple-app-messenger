@@ -32,6 +32,7 @@ dependencies:
   google_sign_in: 
   random_string: 
   shared_preferences:
+  provider: ^4.0.4
 
 dev_dependencies:
   flutter_test:
